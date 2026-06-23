@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhetoric Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons for elegant minimalist icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile Overlay -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <i class="ph ph-scales brand-icon"></i>
+                <h2>Rhetoric<span class="highlight">Master</span></h2>
+            </div>
+            
+            <div class="menu-label">Debate Modes</div>
+            <nav class="mode-selector" id="mode-selector">
+                <button class="mode-btn active" data-mode="classify">
+                    <i class="ph ph-folder-open"></i>
+                    Classify Motion
+                </button>
+                <button class="mode-btn" data-mode="argument">
+                    <i class="ph ph-brain"></i>
+                    Analyze Argument
+                </button>
+                <button class="mode-btn" data-mode="score">
+                    <i class="ph ph-chart-line-up"></i>
+                    Score Performance
+                </button>
+                <button class="mode-btn" data-mode="delivery">
+                    <i class="ph ph-microphone-stage"></i>
+                    Delivery Feedback
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="model-info">
+                    <i class="ph ph-sparkle"></i>
+                    <span>Powered by Groq</span>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="ph ph-sun"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-content">
+            <header class="chat-header">
+                <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
+                    <i class="ph ph-list"></i>
+                </button>
+                <div class="header-text">
+                    <h1 id="current-mode-title">Classify Motion</h1>
+                    <p id="current-mode-desc">Enter a debate motion to categorize its core theme.</p>
+                </div>
+            </header>
+
+            <div id="chat-box" class="chat-box">
+                <div class="welcome-msg">
+                    <div class="icon-wrapper"><i class="ph ph-robot"></i></div>
+                    <h3>Welcome to Rhetoric Master</h3>
+                    <p>Select a mode from the sidebar and type your prompt below to begin organizing your thoughts and arguments.</p>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <form id="chat-form" class="chat-form">
+                    <input type="hidden" id="mode" value="classify">
+                    <div class="input-wrapper">
+                        <textarea id="user-input" placeholder="Type your argument, motion, or speech here..." rows="1" required></textarea>
+                        <button type="submit" class="send-btn" id="send-btn">
+                            <i class="ph-fill ph-paper-plane-right"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="disclaimer">AI-generated responses. Always verify critical information.</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classify Motion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Classify Debate Motion</h2>
+    <form method="POST">
+        <input type="text" name="motion" placeholder="Enter motion..." required>
+        <button type="submit">Classify</button>
+    </form>
+
+    {% if result %}
+    <div class="chat-box">
+        <div class="user-msg">You: {{ request.form['motion'] }}</div>
+        <div class="ai-msg">Rhetoric Master: {{ result }}</div>
+    </div>
+    {% endif %}
+</body>
+</html>
